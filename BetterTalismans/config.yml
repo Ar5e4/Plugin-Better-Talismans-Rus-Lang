@@ -1,0 +1,126 @@
+#           ___      _   _          _____     _ _                                   Our plugins: https://alonsoaliaga.com/plugins
+#          | _ ) ___| |_| |_ ___ _ |_   _|_ _| (_)____ __  __ _ _ _  ___            Support server: https://alonsoaliaga.com/discord
+#          | _ \/ -_)  _|  _/ -_) '_|| |/ _` | | (_-< '  \/ _` | ' \(_-<            Youtube: https://alonsoaliaga.com/play
+#          |___/\___|\__|\__\___|_|  |_|\__,_|_|_/__/_|_|_\__,_|_||_/__/            Test server: plugins.alonsoaliaga.com
+#                                  by AlonsoAliaga                                  Twitch: https://alonsoaliaga.com/twitch
+#              Considering donating? https://alonsoaliaga.com/donate                Thanks for using my plugin! <3
+# ======================================================================================================================================
+# |              Downloaded this jar in a server setup? Tell the author he is NOT allowed to upload someone else work!                 |
+# |   Update to latest version as soon as possible. Support WON'T be given when using old versions. Specially from downloaded setups.  |
+# | Remember: Support is only provided for .jar files downloaded DIRECTLY from spigotmc.org! Other files will be considered as invalid |
+# |        as they are NOT the same .jar file the developer (me) uploaded and I cannot guarantee that the file is safe or not.         |
+# |                   If you have issues with setup configs. Tell the setup author to update his config file.                          |
+# ======================================================================================================================================
+Messages:
+  No-permission: "&cУ тебя нету прав."
+  Reloaded: "&aВсе сообщения и настройки перезагружены. Остальное перезагрузится прямо сейчас!"
+  Invalid-player: "&cИгрок не онлайн!"
+  No-craft-permission: "&cУ тебя нету прав скрафтить этот талисман :("
+  No-shift-craft: "&cТы не можешь крафтить талисман сидя на шифте :("
+  No-recipe-permission: "&cУ тебя нету прав смотреть этот крафт талисмана :("
+  No-recipe-available: "&cЭтот талисман невозможно скрафтить :("
+  #Message sent when player right click a talisman obtained using bugs.
+  Corrupted-talisman: "&cКажется, этот талисман испорчен. Удалите его немедленно :("
+  Disabled: "&cНа этом сервере запрещены талисманы. Он удален!"
+  Disabled-other: "&cНа этом сервере запрещены талисманы."
+  Disabled-armor: "&cНа этом сервере запрещены талисманы. Ваши доспехи-талисманы были удалены!"
+  Removed-talisman: "&9[LOG] &cTalismans has been removed from {PLAYER}. ({AMOUNT})"
+  Talismans:
+    No-permission: "&cYou don't have permission to view talismans GUI."
+    Opened-for-other: "&aYou opened talisman GUI for {TARGET}."
+  Give:
+    Invalid-talisman: "&cTalisman is not valid."
+    Received: "&aYou received '{TALISMAN}' talisman."
+    Received-extra: "&aYou received '{TALISMAN}' talisman. There wasn't enough space in your inventory, some items were dropped in the floor."
+    Success: "&6You gave {TARGET} '{TALISMAN}' talisman."
+  Help:
+    OP:
+    - "&9 /bettertalismans test &f- &bGives you all talismans (OP only)"
+    - "&9 /bettertalismans talismans <player> &f- &bOpen talismans GUI for player"
+    - "&9 /bettertalismans give <player> <talisman> &f- &bGive talisman to player"
+    - "&9 /bettertalismans reload &f- &bReload configuration"
+    Admin:
+    - "&9 /bettertalismans talismans <player> &f- &bOpen talismans GUI for player"
+    - "&9 /bettertalismans give <player> <talisman> &f- &bGive talisman to player"
+    - "&9 /bettertalismans reload &f- &bReload configuration"
+    User:
+    - "&9 /bettertalismans talismans &f- &bOpen talismans GUI"
+
+Lore:
+  Health-boost: "&c+{AMOUNT} Hearts"
+  Speed-boost: "&b+{AMOUNT}% Speed"
+  Armor-boost: "&f+{AMOUNT} Armor Points"
+  Armor-toughness-boost: "&f+{AMOUNT} Armor Toughness"
+  Luck-boost: "&a+{AMOUNT} Luck"
+  Attack-speed-boost: "&e+{AMOUNT} Attack Speed"
+  Attack-damage-boost: "&9+{AMOUNT} Attack Damage"
+  Knockback-resistance-boost: "&7+{AMOUNT}% Knockback Resistance"
+  #For 1.16.x and newer versions this is not a chance anymore, its points.
+  #Knockback-resistance-boost: "&7+{AMOUNT} Knockback Resistance"
+
+Options:
+  #If enabled. Plugin will attempt to remove all talismans from players.
+  #This will listen to click event and interact event to delete the item.
+  #Enable ONLY if you really need it.
+  Remove-talismans: false
+  #Option should be enabled if developer asks you to do it.
+  Debug: false
+  #Hide talismans the player doesn't have permission for?
+  Hide-locked: true
+  #Talismans GUI title.
+  Talismans-gui-title: "&8Talismans GUI ({PAGE}/{MAX})"
+  #Fill empty slots from the last row with empty frames?
+  Fill-empty: true
+  #If enabled, this will allow players to discover all Talismans recipes.
+  #This will allow players to view recipe directly from Recipe Book (Requires 1.13.2 or newer)
+  Discover-recipes: true
+
+Items:
+  Frame:
+    #Basic colors apply here.
+    Color: "BLACK"
+    #Custom model data in case you want. ONLY 1.14+
+    Custom-model-data: 0
+  Unknown-talisman:
+    Texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDZiYTYzMzQ0ZjQ5ZGQxYzRmNTQ4OGU5MjZiZjNkOWUyYjI5OTE2YTZjNTBkNjEwYmI0MGE1MjczZGM4YzgyIn19fQ=="
+    Displayname: "&4&lUnknown Talisman"
+    Lore:
+    - "&7You haven't unlocked this"
+    - "&7talisman. It's a mystery."
+  Previous-page:
+    #Supports "CUSTOM_HEAD" or materials
+    Material: "ARROW"
+    #Texture required if material is "CUSTOM_HEAD"
+    Texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzdhZWU5YTc1YmYwZGY3ODk3MTgzMDE1Y2NhMGIyYTdkNzU1YzYzMzg4ZmYwMTc1MmQ1ZjQ0MTlmYzY0NSJ9fX0="
+    Displayname: "&9Previous page"
+    Lore:
+    - "&7Move to previous page."
+  Next-page:
+    #Supports "CUSTOM_HEAD" or materials
+    Material: "ARROW"
+    #Texture required if material is "CUSTOM_HEAD"
+    Texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDZiYTYzMzQ0ZjQ5ZGQxYzRmNTQ4OGU5MjZiZjNkOWUyYjI5OTE2YTZjNTBkNjEwYmI0MGE1MjczZGM4YzgyIn19fQ=="
+    Displayname: "&9Next page"
+    Lore:
+    - "&7Move to next page."
+
+#Permissions required to access some commands.
+#Set to "none" if no permission is required. Admin permission is always required, even if "none"
+Permissions:
+  Admin: "bettertalismans.admin"
+  #Permission to use /bettertalismans talismans
+  Talismans: "none"
+  #Message to announce when a talisman is removed from a player.
+  Staff: "bettertalismans.staff"
+
+Updates:
+  #Auto update configuration? Enabling will delete comments.
+  Auto-update-configuration: true
+  #Check for updates? Recommended to keep it enabled.
+  Check-updates: true
+  #Notify updates when player with permission joins the server?
+  Notify-updates: true
+  #Permission required to receive update message.
+  Permission: "bettertalismans.update"
+  #Message to send when update is found.
+  Message: "&9[BetterTalismans] &eA new update has been found! You are using version {CURRENT}. Download version {NEW} here &c{LINK}"
